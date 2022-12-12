@@ -111,13 +111,11 @@ function placePiece(idx){
 }
 
 function checkForTie(){
-  if(board.every(tile => {tile !== null})){
-    return tie = true
-  }else{
-    tie = false
+  if(board.every(square=> square !== null)){
+    tie = true
   }
+  else tie = false
 }
-
 function checkForWinner(){
   for(let i = 0; i < winningCombos.length; i++){
     if(Math.abs(
@@ -126,9 +124,9 @@ function checkForWinner(){
       board[winningCombos[i][2]]) === 3){
       winner = true
     } 
-    console.log(board[winningCombos[i][0]])
+    // console.log(board[winningCombos[i][0]])
   }
-  console.log(board)
+  // console.log(board)
 }
 
 function switchPlayerTurn(){
