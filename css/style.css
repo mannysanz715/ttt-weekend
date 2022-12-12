@@ -25,3 +25,21 @@ div {
   vertical-align: middle;
   padding-botton: 10px;
 }
+
+#reset{
+  width: 10vw;
+  text-align: center;
+  margin: 30px auto;
+  border-radius: 20px;
+  font-size: 18px;
+  background-color: rgb(9, 90, 117);
+  color:  rgb(222, 237, 107);
+  border: none;
+  height: 30px;
+  min-width: 150px;
+}
+
+#reset:hover{
+  background-color: rgb(61, 156, 187);
+  
+}
