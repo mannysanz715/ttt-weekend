@@ -21,6 +21,8 @@ const winningCombos = [
 
   const squareEls = [document.getElementById('sq0'), document.getElementById('sq1'),document.getElementById('sq2'),document.getElementById('sq3'),document.getElementById('sq4'),document.getElementById('sq5'),document.getElementById('sq6'),document.getElementById('sq7'),document.getElementById('sq8')]
 
+  const resetBtn = document.getElementById('reset')
+
   const messageEl = document.getElementById('message')
 
   const boardEl = document.querySelector('.board')
@@ -29,13 +31,25 @@ const winningCombos = [
 
   boardEl.addEventListener('click',handleClick)
 
+  resetBtn.addEventListener('click',resetBoard)
+
 /*-------------------------------- Functions --------------------------------*/
 
 
 init()
 
+function resetBoard(){
+  init()
+
+}
+
+
 function init(){
   board = [null, null, null, null, null, null, null, null, null]
+  squareEls.forEach(square => {
+    square.innerHTML = ''
+    square.style.backgroundColor = ''
+  })
   turn = 1
   winner = false
   tie = false
@@ -97,8 +111,8 @@ function placePiece(idx){
 }
 
 function checkForTie(){
-  if(board.some(tile => {tile !== null})){
-    return
+  if(board.every(tile => {tile !== null})){
+    return tie = true
   }else{
     tie = false
   }
